@@ -3,15 +3,24 @@
 }
 
 body {
-  font-family:sans-serif;
+  font-family: sans-serif;
   margin: 25px;
-  color: #222;
-  background-color: #f5f5f5;
+  color: rgb(27, 26, 2);
+  background-color: #e2b41c;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
   font-weight: bold;
-  
+}
+
+h3 {
+  font-weight: bold;
 }
 
 p {
@@ -21,7 +30,8 @@ p {
 form {
   margin-bottom: 25px;
   padding: 15px;
-  background-color: #87D37C;
+  background-color: #272622;
+  color: ivory;
   display: inline-block;
   width: 100%;
   max-width: 340px;
@@ -33,27 +43,42 @@ input {
   margin-bottom: 10px;
   padding: 5px;
   width: 100%;
-  border: 1px solid lightgrey;
+  background-color: #42413a;
+  border: 1px solid rgb(58, 57, 57);
   border-radius: 3px;
+  color: ivory;
   font-size: 16px;
+}
+
+input::-moz-placeholder {
+  opacity: 0.7;
+  color: rgb(228, 227, 220);
+  font-size: 14px;
+}
+
+input::placeholder {
+  opacity: 0.7;
+  color: rgb(228, 227, 220);
+  font-size: 14px;
 }
 
 input[type=submit] {
   font-size: 16px;
   border-radius: 3px;
-  background-color: #E4F1FE;
-  border: 1px solid grey;
-  box-shadow: 2px 2px #999;
+  background-color: #383729;
+  border: 1px solid rgb(202, 169, 24);
+  box-shadow: 2px 2px #aa9349;
   cursor: pointer;
 }
 
 input[type=submit]:hover {
-  background-color: #FFFEC4;
+  background-color: rgb(202, 169, 24);
 }
 
 code {
   font-family: monospace;
   font-size: 1.2em;
-  background-color: #FFFEC4;
+  background-color: #5d5b52;
+  color: ivory;
   padding: 2px;
-}
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,91 @@
+$bg-color-main: #e2b41c;
+$bg-color-form: #272622;
+$bg-color-input: lighten($bg-color-form, 10%);
+$bg-color-submit: #383729;
+$bg-color-code: lighten($bg-color-form, 20%);
+$txt-color-main: rgb(27, 26, 2);
+$txt-color-input: ivory;
+$txt-color-input-ph: rgb(228, 227, 220);
+$txt-color-form: ivory;
+$border-color-input: rgb(58, 57, 57);
+$border-color-submit: rgb(202, 169, 24);
+$box-sh-color-submit: #aa9349;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family:sans-serif;
+  margin: 25px;
+  color: $txt-color-main;
+  background-color: $bg-color-main;
+}
+
+.container {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+h1 {
+  font-weight: bold; 
+}
+
+h3 {
+  font-weight: bold;
+}
+
+p {
+  max-width: 900px;
+}
+
+form {
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: $bg-color-form;
+  color: $txt-color-form; 
+  display: inline-block;
+  width: 100%;
+  max-width: 340px;
+  border-radius: 5px;
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+  background-color: $bg-color-input;
+  border: 1px solid $border-color-input;
+  border-radius: 3px;
+  color: $txt-color-input;
+  font-size: 16px;
+}
+
+input::placeholder {
+  opacity: 0.7;
+  color: $txt-color-input-ph;
+  font-size: 14px;
+}
+
+input[type=submit] {
+  font-size: 16px;
+  border-radius: 3px;
+  background-color: $bg-color-submit;
+  border: 1px solid $border-color-submit;
+  box-shadow: 2px 2px $box-sh-color-submit;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: $border-color-submit;
+}
+
+code {
+  font-family: monospace;
+  font-size: 1.2em;
+  background-color: $bg-color-code;
+  color: $txt-color-form; 
+  padding: 2px;
+}
