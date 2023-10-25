@@ -94,7 +94,7 @@ app.post('/api/users/:_id/exercises', (req, res) => {
   const userID = req.body[':_id'] ? req.body[':_id'] : req.params._id;
   const description = req.body.description;
   const duration = parseInt(req.body.duration);
-  const date = !req.body.date ? new Date() : new Date(req.body.date);
+  const date = !req.body.date ? new Date().toDateString() : new Date(req.body.date).toDateString();
   if (userID === null || userID === '') { 
     return res.json({ error: 'invalid userID' }); 
   }
@@ -106,7 +106,7 @@ app.post('/api/users/:_id/exercises', (req, res) => {
         username: data.username, 
         description: description, 
         duration: duration, 
-        date: date.toDateString(), 
+        date: date, 
         _id: data._id});
     })
     .catch((err) => {console.log({err, 'error':'indByIdAndUpdate'});});
