@@ -28,9 +28,9 @@ let userSchema = new Schema({
   username: {type: String, required: true, unique: true},
   count: {type: Number, default: 0},
   log: [{
-    description: String,
-    duration: Number,
-    date: Date,
+    description: { type: String },
+    duration: { type: Number },
+    date: { type: Date },
   }]
 });
 
@@ -91,20 +91,14 @@ app.post('/api/users', (req, res) => {
 });
 
 app.post('/api/users/:_id/exercises', (req, res) => {
-  const userID = req.body[':_id'];
+  const userID = req.body[':_id'] ? req.body[':_id'] : req.params._id;
   const description = req.body.description;
   const duration = parseInt(req.body.duration);
-  const date = () => {
-    if (req.body.date===""){
-      return new Date().toDateString();
-    } else {
-      return new Date(req.body.date).toDateString();
-    }
-  }
+  const date = !req.body.date ? new Date() : new Date(req.body.date);
   if (userID === null || userID === '') { 
     return res.json({ error: 'invalid userID' }); 
   }
-  const newExercise = {description: description, duration: duration, date: date() };
+  const newExercise = {description: description, duration: duration, date: date };
   User_model
     .findByIdAndUpdate(userID, {$push: {log: newExercise}, $inc: {count: 1}}, {new: true})
     .then((data) => {
@@ -112,7 +106,7 @@ app.post('/api/users/:_id/exercises', (req, res) => {
         username: data.username, 
         description: description, 
         duration: duration, 
-        date: date(), 
+        date: date.toDateString(), 
         _id: data._id});
     })
     .catch((err) => {console.log({err, 'error':'indByIdAndUpdate'});});
